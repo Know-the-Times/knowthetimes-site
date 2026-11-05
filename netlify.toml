@@ -1,0 +1,33 @@
+# Netlify settings for knowthetimes.com
+# The whole site lives in the "site" folder. The feed reader lives in netlify/functions.
+
+[build]
+  publish = "site"
+  functions = "netlify/functions"
+
+# tools.knowthetimes.com is the same Netlify site with a second domain.
+# These rules show the /tools folder there, while shared images, styles,
+# and the post feed still load from their normal places.
+
+[[redirects]]
+  from = "https://tools.knowthetimes.com/assets/*"
+  to = "/assets/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://tools.knowthetimes.com/favicon.ico"
+  to = "/favicon.ico"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://tools.knowthetimes.com/*"
+  to = "/tools/:splat"
+  status = 200
+  force = true
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
