@@ -27,6 +27,21 @@
   status = 200
   force = true
 
+# The tools page has one home: tools.knowthetimes.com.
+# Old links to knowthetimes.com/tools/ forward there.
+
+[[redirects]]
+  from = "https://knowthetimes.com/tools/*"
+  to = "https://tools.knowthetimes.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.knowthetimes.com/tools/*"
+  to = "https://tools.knowthetimes.com/:splat"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/assets/*"
   [headers.values]
